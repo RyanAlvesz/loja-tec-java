@@ -7,6 +7,8 @@ public class Menu {
 
     Scanner scanner = new Scanner(System.in);
 
+    ProdutoInternoController produtoInternoController = new ProdutoInternoController();
+
     public void executarMenu() throws SQLException {
 
         boolean continuar = true;
@@ -16,8 +18,9 @@ public class Menu {
             System.out.println("------------------------------------");
             System.out.println("                Menu");
             System.out.println("------------------------------------");
-            System.out.println("1 - ");
-            System.out.println("2 - Sair");
+            System.out.println("1 - Cadastrar Produto Interno");
+            System.out.println("2 - Listar Produto Interno");
+            System.out.println("3 - Sair");
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
@@ -25,9 +28,14 @@ public class Menu {
 
                 case 1:
 
+                    produtoInternoController.cadastrarProdutoInterno();
                     break;
 
-                case 2:
+                case 2;
+                    produtoInternoController.listarProdutos();
+                    break;
+
+                case 3:
                     continuar = false;
                     break;
 

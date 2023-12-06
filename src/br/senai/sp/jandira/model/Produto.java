@@ -2,13 +2,14 @@ package br.senai.sp.jandira.model;
 
 abstract class Produto {
 
-    private int qntDisponivel, id, preco;
+    private int qntDisponivel, id;
+
+    private double preco;
     private String nome, fornecedor;
 
-    public Produto(int qntDisponivel, int id, int preco, String fornecedor, String nome){
+    public Produto(int qntDisponivel, double preco, String fornecedor, String nome){
 
         this.qntDisponivel = qntDisponivel;
-        this.id = id;
         this.preco = preco;
         this.fornecedor = fornecedor;
         this.nome = nome;
@@ -27,15 +28,11 @@ abstract class Produto {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(int preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
