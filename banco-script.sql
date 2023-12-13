@@ -21,7 +21,7 @@ create table clientes
 (
 	id integer auto_increment not null primary key,
     idade integer,
-    cpg bigint,
+    cpf bigint,
     nome varchar(100),
     email varchar(100)
 );

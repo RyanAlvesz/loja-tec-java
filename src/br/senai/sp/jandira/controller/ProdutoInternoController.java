@@ -1,12 +1,7 @@
 package br.senai.sp.jandira.controller;
 
-import br.senai.sp.jandira.model.Conexao;
-import br.senai.sp.jandira.model.ProdutoInterno;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import br.senai.sp.jandira.model.*;
+import java.sql.*;
 
 public class ProdutoInternoController {
 
@@ -36,7 +31,7 @@ public class ProdutoInternoController {
         String queryConsulta = "SELECT * FROM produtos WHERE ram IS NOT NULL";
         ResultSet resultSet = statement.executeQuery(queryConsulta);
 
-        ProdutoInterno produtoInterno = new ProdutoInterno(2, 10, "Samsung", "Monitor");
+        ProdutoInterno produtoInterno = new ProdutoInterno();
 
         while (resultSet.next()){
             produtoInterno.setQntDisponivel(resultSet.getInt("qnt_disponivel"));

@@ -2,12 +2,11 @@ package br.senai.sp.jandira.model;
 
 public class ProdutoExterno extends Produto{
 
-    int tamanho;
-    String cor;
-    Boolean bluetooth;
+    private int tamanho;
+    private String cor;
+    private Boolean bluetooth;
 
-    public ProdutoExterno(int qntDisponivel, double preco, String fornecedor, String nome) {
-        super(qntDisponivel, preco, fornecedor, nome);
+    public ProdutoExterno() {
         this.tamanho = 0;
         this.cor = "Preto";
         this.bluetooth = false;

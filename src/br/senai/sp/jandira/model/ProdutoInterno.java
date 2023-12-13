@@ -2,10 +2,9 @@ package br.senai.sp.jandira.model;
 
 public class ProdutoInterno extends Produto{
 
-    int ram, memoria, nucleos;
+    private int ram, memoria, nucleos;
 
-    public ProdutoInterno(int qntDisponivel, double preco, String fornecedor, String nome) {
-        super(qntDisponivel, preco, fornecedor, nome);
+    public ProdutoInterno() {
         this.ram = 0;
         this.memoria = 0;
         this.nucleos = 0;

@@ -1,21 +1,40 @@
 package br.senai.sp.jandira.model;
 
+import java.util.Scanner;
+
 abstract class Produto {
 
-    private int qntDisponivel, id;
+    // Instânciando Scanner
+    Scanner scanner = new Scanner(System.in);
 
+    // Criando variáveis
+    private int qntDisponivel, id;
     private double preco;
     private String nome, fornecedor;
 
-    public Produto(int qntDisponivel, double preco, String fornecedor, String nome){
+    // Métodos
+    public void cadastrarProduto(){
 
-        this.qntDisponivel = qntDisponivel;
-        this.preco = preco;
-        this.fornecedor = fornecedor;
-        this.nome = nome;
+        System.out.println("Informe o nome do produto");
+        setNome(scanner.nextLine());
+
+        System.out.println("Informe a quantidade disponível");
+        setQntDisponivel(scanner.nextInt());
+        scanner.nextLine();
+
+        System.out.println("Informe o preço do produto");
+        setPreco(scanner.nextDouble());
+        scanner.nextLine();
+
+        System.out.println("Informe o fornecedor do produto");
+        setFornecedor(scanner.nextLine());
+
+        System.out.println("Produto cadastrado com sucesso!");
 
     }
 
+
+    // Getter e Setter (Encapsulamento)
     public int getQntDisponivel() {
         return qntDisponivel;
     }
