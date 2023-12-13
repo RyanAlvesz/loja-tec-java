@@ -8,7 +8,8 @@ public class Clientes {
     Scanner scanner = new Scanner(System.in);
 
     // Criando variáveis
-    private int idade, cpf, id;
+    private int idade, id;
+    private long cpf;
     private String nome, email;
 
     // Métodos
@@ -17,7 +18,7 @@ public class Clientes {
         System.out.print("Informe o nome do Cliente: ");
         setNome(scanner.nextLine());
         System.out.print("Informe o cpf do Cliente: ");
-        setCpf(scanner.nextInt());
+        setCpf(scanner.nextLong());
         scanner.nextLine();
         System.out.print("Informe a idade do Cliente: ");
         setIdade(scanner.nextInt());
@@ -38,11 +39,11 @@ public class Clientes {
         this.idade = idade;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
