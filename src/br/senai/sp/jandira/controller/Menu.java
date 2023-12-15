@@ -28,12 +28,12 @@ public class Menu {
             System.out.println("3 - Deletar Cliente");
             System.out.println("4 - Cadastrar Produto");
             System.out.println("5 - Listar Produtos");
-            System.out.println("6 - Editar Produto");
-            System.out.println("7 - Listar Produto Interno");
-            System.out.println("8 - Pesquisar por produtos");
-            System.out.println("9 - Sair");
+            System.out.println("6 - Editar Quantidade de Produtos");
+            System.out.println("7 - Sair");
             int opcao = scanner.nextInt();
             scanner.nextLine();
+
+            System.out.println("");
 
             switch (opcao) {
 
@@ -50,9 +50,9 @@ public class Menu {
                 case 3:
                     // Eu ia fazer uma opção para editar várias informações de um cliente,
                     // porém ia ficar muito grande, então eu só vou fazer para deletar.
-                    // O importante é o conceito e isso eu tenho!! 🚀🚀
+                    // O importante é o conceito e isso eu tenho!!
                     System.out.print("Informe o cpf do cliente que deseja deletar: ");
-                    int cpf = scanner.nextInt();
+                    long cpf = scanner.nextLong();
                     scanner.nextLine();
                     clientesController.deletarCliente(cpf);
                     break;
@@ -85,22 +85,69 @@ public class Menu {
                     break;
 
                 case 5:
-                    System.out.println("Funcionalidade em Desenvolvimento");
+                    System.out.println("Você deseja listar ");
+                    System.out.println("1 - Todos os produtos");
+                    System.out.println("2 - Produtos internos");
+                    System.out.println("3 - Produtos externos");
+                    int escolhaListarProduto = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (escolhaListarProduto == 1){
+
+                        produtoInternoController.listarProdutos();
+                        produtoExternoController.listarProdutos();
+
+                    } else if (escolhaListarProduto == 2){
+
+                        produtoInternoController.listarProdutos();
+
+                    } else if (escolhaListarProduto == 3) {
+
+                        produtoExternoController.listarProdutos();
+
+                    } else {
+
+                        System.out.println("Escolha uma opção válida");
+
+                    }
+
                     break;
 
                 case 6:
-                    System.out.println("Funcionalidade em Desenvolvimento");
+                    System.out.println("Você deseja editar ");
+                    System.out.println("1 - Produtos internos");
+                    System.out.println("2 - Produtos externos");
+                    int escolhaEditarProduto = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("");
+
+                    System.out.println("Informe o id do produto que deseja editar");
+
+                    System.out.println("");
+
+                    if (escolhaEditarProduto == 1){
+                        produtoInternoController.listarProdutos();
+                    } else if (escolhaEditarProduto == 2) {
+                        produtoExternoController.listarProdutos();
+                    }
+
+                    int idProduto = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Informe a quantidade de produtos: ");
+                    int qntProduto = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (escolhaEditarProduto == 1){
+                        produtoInternoController.editarProduto(idProduto, qntProduto);
+                    } else {
+                        produtoExternoController.editarProduto(idProduto, qntProduto);
+                    }
+
                     break;
 
                 case 7:
-                    System.out.println("Funcionalidade em Desenvolvimento");
-                    break;
-
-                case 8:
-                    System.out.println("Funcionalidade em Desenvolvimento");
-                    break;
-
-                case 9:
                     continuar = false;
                     break;
 

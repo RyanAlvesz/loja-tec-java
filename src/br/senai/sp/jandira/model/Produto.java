@@ -15,18 +15,18 @@ abstract class Produto {
     // Métodos
     public void cadastrarProduto(){
 
-        System.out.println("Informe o nome do produto");
+        System.out.print("Informe o nome do produto: ");
         setNome(scanner.nextLine());
 
-        System.out.println("Informe a quantidade disponível");
+        System.out.print("Informe a quantidade disponível: ");
         setQntDisponivel(scanner.nextInt());
         scanner.nextLine();
 
-        System.out.println("Informe o preço do produto");
+        System.out.print("Informe o preço do produto: ");
         setPreco(scanner.nextDouble());
         scanner.nextLine();
 
-        System.out.println("Informe o fornecedor do produto");
+        System.out.print("Informe o fornecedor do produto: ");
         setFornecedor(scanner.nextLine());
 
         System.out.println("Produto cadastrado com sucesso!");
@@ -45,6 +45,10 @@ abstract class Produto {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public double getPreco() {

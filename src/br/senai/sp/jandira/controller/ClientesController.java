@@ -11,14 +11,14 @@ public class ClientesController {
     public void cadastrarCliente(Clientes clientes) throws SQLException {
 
         Statement statement = connection.createStatement();
-        String queryCadastrar = "INSERT INTO clientes (nome, cpf, idade, email) values (" +
+        String queryCadastrar = "INSERT INTO clientes (idade, cpf, nome, email) values (" +
+                clientes.getIdade() + ", " +
+                clientes.getCpf() + ", '" +
                 clientes.getNome() + "', '" +
-                clientes.getCpf() + "', " +
-                clientes.getIdade() + ", '" +
                 clientes.getEmail() + "')";
 
         statement.executeUpdate(queryCadastrar);
-        System.out.println("Funcionário cadastrado com sucesso!");
+
         System.out.println("");
 
     }
@@ -34,7 +34,7 @@ public class ClientesController {
         while (resultSet.next()){
 
             cliente.setNome(resultSet.getString("nome"));
-            cliente.setCpf(resultSet.getInt("cpf"));
+            cliente.setCpf(resultSet.getLong("cpf"));
             cliente.setIdade(resultSet.getInt("idade"));
             cliente.setEmail(resultSet.getString("email"));
             cliente.setId(resultSet.getInt("id"));
@@ -48,20 +48,25 @@ public class ClientesController {
 
         }
 
+        System.out.println("");
+
     }
 
-    public void deletarCliente(int cpf) throws SQLException {
+    public void deletarCliente(long cpf) throws SQLException {
 
         Statement statement = connection.createStatement();
 
         String queryPesquisarNome = "SELECT nome FROM clientes WHERE cpf = '" + cpf + "'";
         ResultSet resultSet = statement.executeQuery(queryPesquisarNome);
 
+        Clientes cliente = new Clientes();
+
+        while (resultSet.next()){
+            cliente.setNome(resultSet.getString("nome"));
+        }
+
         String queryDeletar = "DELETE FROM clientes WHERE cpf = '" + cpf + "'";
         statement.executeUpdate(queryDeletar);
-
-        Clientes cliente = new Clientes();
-        cliente.setNome(resultSet.getString("nome"));
 
         System.out.println(cliente.getNome() + " deletado(a) com sucesso!");
         System.out.println("");

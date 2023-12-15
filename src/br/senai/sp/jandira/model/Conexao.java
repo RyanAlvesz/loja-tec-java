@@ -9,21 +9,19 @@ public class Conexao {
     public Connection conexao;
     public Conexao(){
         this.servidor = "localhost";
-        this.banco = "db_loja_tec";
+        this.banco = "bd_loja_tec_ryan";
         this.usuario = "root";
         this.senha = "bcd127";
     }
 
-    public boolean connectDrive(){
+    public void connectDrive(){
 
         try {
             this.conexao = DriverManager.getConnection("jdbc:mysql://" +
                     this.servidor + "/" + this.banco, this.usuario, this.senha);
-            return true;
 
         }catch (Exception erro){
             System.out.println(erro);
-            return false;
         }
 
     }
